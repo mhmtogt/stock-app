@@ -28,8 +28,8 @@ const Login = () => {
       .matches(/[a-z]/, "Şifre en az bir küçük harf içermelidir")
       .matches(/[A-Z]/, "Şifre en az bir büyük harf içermelidir")
       .matches(
-        /[@$!%*?&.]+/,
-        "Şifre en az bir özel karakter (@$!%*?&.) içermelidir"
+        /[@$!%*?&]+/,
+        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
       ),
   })
   return (
