@@ -8,11 +8,20 @@ import { Link } from "react-router-dom"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
-import { Formik } from "formik"
+import { Form, Formik } from "formik"
+import { object, string, number, date, InferType } from 'yup';
+
+ 
 
 const Login = () => {
   
-  const loginSchema={}
+  const loginSchema = object({
+    name: string().required(),
+    age: number().required().positive().integer(),
+    email: string().email(),
+    website: string().url().nullable(),
+    createdOn: date().default(() => new Date()),
+  });
     return (
     <Container maxWidth="lg">
       <Grid
@@ -49,15 +58,28 @@ const Login = () => {
           >
             Login
           </Typography>
-            <Formik // formik ile yapacağmış inputlara koşul belirterek girişleri kontrol edebiliriz "yup" ile birlikte kullanacağız
+            <Formik // formik ile yapacağmış inputlara koşul belirterek girişleri kontrol edebiliriz "yup" ile birlikte kullanacağız 
 
-            initialValues={{email:"", password:""}}
-            validationSchema={loginSchema}//loginShema 
-            >
+            initialValues={{email:"", password:""}}// burada içerde bir state oluşturuyor
+             validationSchema={loginSchema}//loginShema validate yerine bunu kullandık
+            onSubmit={(values,actions)=>{
+              // login(post) isteği atmamız gerekiyor apiye veri gönderiyoruz
+              // navigasyon yapılabilir yönlendirme 
+              // toast işlermleri yapılabilir 
+              // login işlermi başarılaı biterse verileri globall state'e aktarıp kaydedicez
+              // yazdığımız form silinebilir submitten sonra
 
-            </Formik>
-          <Box
-            component="form"
+              actions.resetForm()
+              actions.setSubmitting(false) // form submit edildiği süre içerisinde  bu true ya kuruluyor
+
+            }} //içerisine bir callback alıyor bu callabackin içerisinde birinci parametre olarak values var ve bu values ile diğer parametreleri çağıracağız email parsswor gibi           
+          >
+            {({handleChange,values,touched,errors})=>(
+                 <Form> {/*fromiğin içindeki bu errors validate veya validationSchame ile birlikte çalışır
+                 touched forma dokunup hiç bir şey yazmadan geliyorsan tochedi calıştırır dokunuldumu özelliğini tetikler
+                 formiğin formunun içine kendi yazmış olduğumuz text fieldları alıyoruz */}
+                   <Box
+            
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
             <TextField
@@ -66,6 +88,10 @@ const Login = () => {
               id="email"
               type="email"
               variant="outlined"
+              value={values.email}
+              onChange={handleChange}
+              error={touched.email &&Boolean(errors.email)}//string ifadeyi booleanlaştırıp errors değişkeni true olursa helperTexti ekrana basar 
+              helperText={errors.email}//yup errors mesajını hazır verdiği için rorrs içinden direk alıyoruz
             />
             <TextField
               label="password"
@@ -73,11 +99,21 @@ const Login = () => {
               id="password"
               type="password"
               variant="outlined"
-            />
+              value={values.password}
+              onChange={handleChange} // önceden handleChange kendimiz yazıyorduk şimdi ise formik kendisi getirmiş hazır kullanıyoruz
+              error={touched.password &&Boolean(errors.password)}
+              helperText={errors.password}
+
+          />
             <Button variant="contained" type="submit">
               Submit
-            </Button>
+            </Button> 
           </Box>
+              </Form>
+            )}  {/* burada değişkenleri yakalamak istiyorsanız burada callback kısmına bir süslü daha açıp valuesları yakalayapbilirsiniz email pass vbi */}
+
+            </Formik>
+         
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
