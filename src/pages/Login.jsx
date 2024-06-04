@@ -9,18 +9,17 @@ import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Form, Formik } from "formik"
-import { object, string, number, date, InferType } from 'yup';
+import { object, string } from 'yup';
 
  
 
 const Login = () => {
   
-  const loginSchema = object({
-    name: string().required(),
-    age: number().required().positive().integer(),
-    email: string().email(),
-    website: string().url().nullable(),
-    createdOn: date().default(() => new Date()),
+  const loginSchema = object({// burada object kısmına bir obje verip obje kısmıda  kullanddığıjmız keyler bizim aşağıda formikte kullandıığımız keyler olacak
+  
+    email: string().email().required(),
+    password: string().required(),
+   
   });
     return (
     <Container maxWidth="lg">
@@ -74,7 +73,7 @@ const Login = () => {
 
             }} //içerisine bir callback alıyor bu callabackin içerisinde birinci parametre olarak values var ve bu values ile diğer parametreleri çağıracağız email parsswor gibi           
           >
-            {({handleChange,values,touched,errors})=>(
+            {({handleChange,handleBlur,values,touched,errors})=>(
                  <Form> {/*fromiğin içindeki bu errors validate veya validationSchame ile birlikte çalışır
                  touched forma dokunup hiç bir şey yazmadan geliyorsan tochedi calıştırır dokunuldumu özelliğini tetikler
                  formiğin formunun içine kendi yazmış olduğumuz text fieldları alıyoruz */}
@@ -90,6 +89,7 @@ const Login = () => {
               variant="outlined"
               value={values.email}
               onChange={handleChange}
+              onBlur={handleBlur}//bir inputun üstüne gelince onFocus üstünden çekilince onBlur bunu anlar
               error={touched.email &&Boolean(errors.email)}//string ifadeyi booleanlaştırıp errors değişkeni true olursa helperTexti ekrana basar 
               helperText={errors.email}//yup errors mesajını hazır verdiği için rorrs içinden direk alıyoruz
             />
