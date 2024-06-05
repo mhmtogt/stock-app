@@ -1,4 +1,4 @@
-
+import React from "react"
 import Avatar from "@mui/material/Avatar"
 import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid"
@@ -11,11 +11,11 @@ import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
-import { login } from "../service/authApiCall"
+import  useAuthCalls from "../service/useAuthCalls"
 //import useAuthCalls from "../service/useAuthCalls"
 
 const Login = () => {
-  //const { login } = useAuthCalls()
+  const { login } = useAuthCalls()// burada useAuthCalls içerisinden logini çıkartık named gibi burada kullanabilieclim
 
   const loginSchema = object({
     email: string()
