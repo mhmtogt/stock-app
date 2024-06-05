@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
+import { login } from "../service/authApiCall"
 //import useAuthCalls from "../service/useAuthCalls"
 
 const Login = () => {
@@ -78,7 +79,7 @@ const Login = () => {
               // toast işlermleri yapılabilir 
               // login işlermi başarılaı biterse verileri globall state'e aktarıp kaydedicez
               // yazdığımız form silinebilir subfmitten sonra
-
+              login(values)
               actions.resetForm()
               actions.setSubmitting(false) // form submit edildiği süre içerisinde  bu true ya kuruluyor
               //? veriler global state'e aktırlabilir
