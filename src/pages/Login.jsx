@@ -22,7 +22,7 @@ const Login = () => {
       .email("Lütfen geçerli bir email giriniz")
       .required("Email girişi zorunludur"),
     password: string()
-      .required("Şifre girişi zorunludur.")
+      .required("Şifre  zorunludur.")
       .min(8, "Şifre en az 8 karakter içermelidir")
       .max(16, "Şifre en falza 16 karakter içermelidir")
       .matches(/\d+/, "Şifre en az bir rakam içermelidir")
