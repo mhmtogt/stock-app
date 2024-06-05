@@ -32,6 +32,7 @@ const authSlice = createSlice({
       state.user= payload.user.username
       state.token=payload.token
     },
+    registerSuccess:()=>{},
     fetchFail:(state)=>{
       state.loading=false;
       state.error=true;
