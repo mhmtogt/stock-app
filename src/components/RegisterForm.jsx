@@ -5,7 +5,7 @@ import { Form } from "formik"
 import { object, string } from "yup"
 
 export const registerSchema = object({
-  username: string()
+  userName: string()
     .max(20, "Kullanıcı adı 10 karakterden az olmalıdır.")
     .required("Kullanıcı adı zorunludur"),
   firstName: string()
@@ -40,15 +40,15 @@ const RegisterForm = ({
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
           label="Kullanıcı adı"
-          name="username"
+          name="userName"
           id="userName"
           type="text"
           variant="outlined"
-          value={values.username}
+          value={values.userName}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={touched.username && Boolean(errors.username)}
-          helperText={errors.username}
+          error={touched.userName && Boolean(errors.userName)}
+          helperText={errors.userName}
         />
         <TextField
           label="İsim"

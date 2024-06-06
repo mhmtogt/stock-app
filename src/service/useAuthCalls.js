@@ -31,26 +31,29 @@ const useAuthCalls = () => {
       // )
       const { data } = await axiosPublic.post("/auth/login/", userInfo);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("Login işlemi basarili.");
-      navigate("/stock");
+      toastSuccessNotify("Giriş işlemi basarili.");
+      navigate("/deneme");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Login işlemi başarisiz oldu.");
+      toastErrorNotify("Giriş işlemi başarisiz oldu.");
       console.log(error);
     }
   };
 
   const register = async (userInfo) => {
     dispatch(fetchStart());
+    console.log(userInfo);
     try {
       // const { data } = await axios.post(
       //   `${process.env.REACT_APP_BASE_URL}/users/`,
       //   userInfo
       // )// dashboard sayfasında logout onClick edildiği zaman buraya y istek gelecek ve başarılıysa işelm
-      const { data } = await axiosPublic.post("/users/", userInfo);
+      const { data } = await axiosPublic.post("/user/", userInfo);
       dispatch(registerSuccess(data));
-      navigate("/stock");
+      console.log(data);
+      navigate("/deneme");
     } catch (error) {
+      console.log(error);
       dispatch(fetchFail());
     }
   };
