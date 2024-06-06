@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 // bizim burada login işlemini tutacak global statelere ihtiyacımız var 
 const initialState = {
   user: "",
+  username:"",
   loading: false,
   error: false,
   token: "",

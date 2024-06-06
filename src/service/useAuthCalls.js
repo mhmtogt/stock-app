@@ -1,4 +1,5 @@
 // import axios from "axios"
+// authantication işlemlerinin tamamını burada yaptım
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useNavigate } from "react-router-dom";
 import {
@@ -18,7 +19,7 @@ const useAuthCalls = () => {
   //"bu fonksyonun içerisine hook koymak gerekirse hooku bir js kodu içerisinde direk çağıramazsın bunun ya bir component olması gerekiyor yada custom hook olması gerekiyor  "
 
   //gireceğimiz verileri  bu fonksyon içerisinde uste belirtip  alta kullanacaz uzer insfo gibi
-  // const { token } = useSelector((state) => state.auth)
+  // const { token } = useSelector((state) => state.auth) state içinde auth içinde tokenı çıkartıcaztokenı almak için useSelector hookunu kullanıyorum
   const { axiosWithToken, axiosPublic } = useAxios();
 
   const login = async (userInfo) => {
@@ -45,7 +46,7 @@ const useAuthCalls = () => {
       // const { data } = await axios.post(
       //   `${process.env.REACT_APP_BASE_URL}/users/`,
       //   userInfo
-      // )
+      // )// dashboard sayfasında logout onClick edildiği zaman buraya y istek gelecek ve başarılıysa işelm
       const { data } = await axiosPublic.post("/users/", userInfo);
       dispatch(registerSuccess(data));
       navigate("/stock");
@@ -59,7 +60,7 @@ const useAuthCalls = () => {
     try {
       // await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
       //   headers: { Authorization: `Token ${token}` },
-      // })
+      // })//bilgiler token ile çıkış yapmak istersen bu token sytexi ile kullanacam
       await axiosWithToken("/auth/logout/");
       toastSuccessNotify("Çıkış işlemi başarili.");
       dispatch(logoutSuccess());
