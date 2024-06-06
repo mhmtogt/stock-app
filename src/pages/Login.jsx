@@ -67,7 +67,7 @@ const Login = () => {
             mb={4}
             color="secondary.light"
           >
-            Login
+            MERHABA
           </Typography>
 
           <Formik // formik ile yapacağmış inputlara koşul belirterek girişleri kontrol edebiliriz "yup" ile birlikte kullanacağız 
@@ -107,7 +107,7 @@ const Login = () => {
                     
                   />
                   <TextField
-                    label="password"
+                    label="Şifre"
                     name="password"
                     id="password"
                     type="password"
@@ -119,7 +119,7 @@ const Login = () => {
                     helperText={errors.password}
                   />
                   <Button variant="contained" type="submit">
-                    Submit
+                    GİRİŞ
                   </Button>
                 </Box>
               </Form> //* burada değişkenleri yakalamak istiyorsanız burada callback kısmına bir süslü daha açıp valuesları yakalayapbilirsiniz email pass vbi */}
@@ -127,7 +127,7 @@ const Login = () => {
           </Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Link to="/register">Do you have not an account?</Link>
+            <Link to="/register">Bir hesabınız yok mu?</Link>
           </Box>
         </Grid>
 

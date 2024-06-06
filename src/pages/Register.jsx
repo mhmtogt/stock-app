@@ -48,7 +48,7 @@ const Register = () => {
             mb={2}
             color="secondary.light"
           >
-            Register
+            KAYIT
           </Typography>
 
           <Formik
@@ -69,7 +69,7 @@ const Register = () => {
           ></Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Link to="/">Do you have an account?</Link>
+            <Link to="/">Bir hesabınız var mı?</Link>
           </Box>
         </Grid>
 

@@ -1,44 +1,49 @@
 import { createSlice } from "@reduxjs/toolkit"
-
 // bizim burada login işlemini tutacak global statelere ihtiyacımız var 
 const initialState = {
-  user:"",
+  user: "",
   loading: false,
-   error: false,
-   token:"",
-
-
-
+  error: false,
+  token: "",
 }
-
-
-
-
 // biz slice'a yani global state veri aktarıcaz ama 
 //bu veri API den gelecek ya ayscn tunk yöndemiyle 
 //ekştra reucer yazacaz yada work arount yöntemi
- 
 const authSlice = createSlice({
   name: "auth",
-
-  initialState: {},
+  initialState,
   reducers: {
-
-    fetchStart:(state)=>{
-      state.loading=true
+    fetchStart: (state) => {
+      state.loading = true
     },
-    loginSuccess:(state, {payload})=>{
-      state.loading=false;
-      state.user= payload.user.username
-      state.token=payload.token
+    loginSuccess: (state, { payload }) => {
+      state.loading = false
+      state.user = payload.user.username
+      state.token = payload.token
     },
-    registerSuccess:()=>{},
-    fetchFail:(state)=>{
-      state.loading=false;
-      state.error=true;
+    registerSuccess: (state, { payload }) => {
+      state.loading = false
+      state.user = payload.data.username
+      state.token = payload.token
+    },
+    logoutSuccess: (state) => {
+      state.user = ""
+      state.loading = false
+      state.token = ""
+    },
+    fetchFail: (state) => {
+      state.loading = false
+      state.error = true
     },
   },
 })
-//
-export const {fetchStart,fetchFail,loginSuccess} = authSlice.actions
+
+export const {
+  fetchStart,
+  loginSuccess,
+  registerSuccess,
+  logoutSuccess,
+  fetchFail,
+} = authSlice.actions
+
 export default authSlice.reducer

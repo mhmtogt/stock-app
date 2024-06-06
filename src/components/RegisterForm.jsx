@@ -39,7 +39,7 @@ const RegisterForm = ({
     <Form>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
-          label="User Name"
+          label="Kullanıcı adı"
           name="username"
           id="userName"
           type="text"
@@ -51,7 +51,7 @@ const RegisterForm = ({
           helperText={errors.username}
         />
         <TextField
-          label="First Name"
+          label="İsim"
           name="firstName"
           id="firstName"
           type="text"
@@ -63,7 +63,7 @@ const RegisterForm = ({
           helperText={errors.firstName}
         />
         <TextField
-          label="Last Name"
+          label="Soyisim"
           name="lastName"
           id="lastName"
           type="text"
@@ -87,7 +87,7 @@ const RegisterForm = ({
           helperText={errors.email}
         />
         <TextField
-          label="password"
+          label="Şifre"
           name="password"
           id="password"
           type="password"
@@ -99,7 +99,7 @@ const RegisterForm = ({
           helperText={errors.password}
         />
         <Button type="submit" variant="contained" size="large">
-          Submit
+          KAYIT OL
         </Button>
       </Box>
     </Form>
