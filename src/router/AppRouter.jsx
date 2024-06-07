@@ -10,15 +10,12 @@ import Sales from "../pages/Sales"
 import Brands from "../pages/Brands"
 import Firms from "../pages/Firms"
 import Products from "../pages/Products"
-import Deneme from "../pages/Deneme"
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/deneme" element={<Deneme />} />
-
         <Route path="register" element={<Register />} />
         <Route path="stock" element={<PrivateRouter />}>
           <Route path="" element={<Dashboard />}>

@@ -55,6 +55,7 @@ const useAuthCalls = () => {
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
+      toastErrorNotify("Başarıyla kayıt oldunuz.");
     }
   };
 
