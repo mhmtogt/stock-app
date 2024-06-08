@@ -32,7 +32,8 @@ const useAuthCalls = () => {
       const { data } = await axiosPublic.post("/auth/login/", userInfo);
       dispatch(loginSuccess(data));
       toastSuccessNotify("Giriş işlemi basarili.");
-      navigate("/deneme");
+      navigate("/dashboard");
+      console.log();
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify("Giriş işlemi başarisiz oldu.");
@@ -49,13 +50,14 @@ const useAuthCalls = () => {
       //   userInfo
       // )// dashboard sayfasında logout onClick edildiği zaman buraya y istek gelecek ve başarılıysa işelm
       const { data } = await axiosPublic.post("/user/", userInfo);
+      toastSuccessNotify("Kayıt işlemi başarili.");
+
       dispatch(registerSuccess(data));
       console.log(data);
-      navigate("/deneme");
+      navigate("/stock");
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
-      toastErrorNotify("Başarıyla kayıt oldunuz.");
     }
   };
 
@@ -68,7 +70,7 @@ const useAuthCalls = () => {
       await axiosWithToken("/auth/logout/");
       toastSuccessNotify("Çıkış işlemi başarili.");
       dispatch(logoutSuccess());
-      // navigate("/")
+      navigate("/");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify("Çıkış işlemi başarisiz oldu.");
