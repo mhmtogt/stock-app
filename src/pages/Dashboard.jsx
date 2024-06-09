@@ -121,7 +121,7 @@ function Dashboard(props) {
         <Outlet />
       </Box>
     </Box>
-  )
+  )// bur sayfaların hepsi baştan yazılacak onun iiçin çokta umutlanma bence ona göre hareket etmen gerkiyor
 }
 
 export default Dashboard
