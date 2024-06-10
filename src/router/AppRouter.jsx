@@ -1,15 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Login from "../pages/Login"
-import Register from "../pages/Register"
-import PrivateRouter from "./PrivateRouter"
-import Dashboard from "../pages/Dashboard"
-import Home from "../pages/Home"
-import Purchases from "../pages/Purchases"
-import Sales from "../pages/Sales"
-import Brands from "../pages/Brands"
-import Firms from "../pages/Firms"
-import Products from "../pages/Products"
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import PrivateRouter from "./PrivateRouter";
+import Dashboard from "../pages/Dashboard";
+import Home from "../pages/Home";
+import Purchases from "../pages/Purchases";
+import Sales from "../pages/Sales";
+import Brands from "../pages/Brands";
+import Firms from "../pages/Firms";
+import Products from "../pages/Products";
 
 const AppRouter = () => {
   return (
