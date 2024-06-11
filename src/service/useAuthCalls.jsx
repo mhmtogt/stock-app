@@ -43,7 +43,6 @@ const useAuthCalls = () => {
 
   const register = async (userInfo) => {
     dispatch(fetchStart());
-    console.log(userInfo);
     try {
       // const { data } = await axios.post(
       //   `${process.env.REACT_APP_BASE_URL}/users/`,

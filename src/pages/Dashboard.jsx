@@ -14,7 +14,7 @@ import useAuthCalls from "../service/useAuthCalls"
 import MenuListItems from "../components/MenuListItems"
 import { Outlet } from "react-router-dom"
 
-const drawerWidth = 200
+const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props
