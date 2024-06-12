@@ -28,7 +28,9 @@ export const registerSchema = object({
     .matches(/[!/[@$!%*?&]+/, "Şifre bir özel karakter içermelidir"),
 })
 
+
 const RegisterForm = ({
+
   values,
   handleChange,
   errors,

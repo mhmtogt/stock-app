@@ -10,6 +10,9 @@ const initialState = {
 // biz slice'a yani global state veri aktarıcaz ama 
 //bu veri API den gelecek ya ayscn tunk yöndemiyle 
 //ekştra reucer yazacaz yada work arount yöntemi
+// auth slice denilen bu sayfa oluşturulan sayfaların 
+//uzun uzun yazılmak yerine yeni biri reducer oluşturup 
+//tek sayfa üzerinden yöntelilmesi için sstatleri obyeleştiriyor
 const authSlice = createSlice({
   name: "auth",
   initialState,
