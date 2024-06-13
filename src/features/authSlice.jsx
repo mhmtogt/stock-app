@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
   error: false,
   token: "",
-}
+};
 // biz slice'a yani global state veri aktarıcaz ama 
 //bu veri API den gelecek ya ayscn tunk yöndemiyle 
 //ekştra reucer yazacaz yada work arount yöntemi

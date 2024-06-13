@@ -39,6 +39,7 @@ export default function PurchaseModal({ open, handleClose, info, setInfo }) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        
       >
         <Box sx={modalStyle}>
           <Box
@@ -87,6 +88,7 @@ export default function PurchaseModal({ open, handleClose, info, setInfo }) {
                 </MenuItem>
                 <hr />
                 {brands?.map((item) => {
+                  
                   return (
                     <MenuItem key={item._id} value={item._id}>
                       {item.name}
@@ -131,6 +133,7 @@ export default function PurchaseModal({ open, handleClose, info, setInfo }) {
               value={info?.quantity}
               onChange={handleChange}
               required
+              
             />
             <TextField
               label="Price"

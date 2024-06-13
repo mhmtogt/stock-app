@@ -34,7 +34,7 @@ const Firms = () => {
   useEffect(() => {
     // getFirms()
     getStocks("firms")
-  }, [])
+  }, )
 
   return (
     <div>
@@ -65,6 +65,7 @@ const Firms = () => {
         <Grid container gap={2} mt={3} justifyContent={"center"}>
           {firms?.map((firm) => (
             <Grid item key={firm._id}>
+              
               <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
             </Grid>
           ))}
