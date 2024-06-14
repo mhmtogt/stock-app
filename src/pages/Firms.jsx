@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography"
 import { useEffect, useState } from "react"
 import useStockCalls from "../service/useStockCalls"
 import { useSelector } from "react-redux"
-import { Grid } from "@mui/material"
+import { Grid, } from "@mui/material"
 import FirmCard from "../components/FirmCard"
 import FirmModal from "../components/FirmModal"
 import TableSkeleton, {
@@ -63,6 +63,7 @@ const Firms = () => {
 
       {!loading && !error && firms.length > 0 && (
         <Grid container gap={2} mt={3} justifyContent={"center"}>
+          
           {firms?.map((firm) => (
             <Grid item key={firm._id}>
               

@@ -1,4 +1,4 @@
-// import axios from "axios"
+ import axios from "axios"
 // authantication işlemlerinin tamamını burada yaptım
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useNavigate } from "react-router-dom";
@@ -42,15 +42,17 @@ const useAuthCalls = () => {
   };
 
   const register = async (userInfo) => {
+    debugger;
     dispatch(fetchStart());
+    debugger;
     try {
-      // const { data } = await axios.post(
-      //   `${process.env.REACT_APP_BASE_URL}/users/`,
-      //   userInfo
-      // )// dashboard sayfasında logout onClick edildiği zaman buraya y istek gelecek ve başarılıysa işelm
-      const { data } = await axiosPublic.post("/user/", userInfo);
+       const { data } = await axios.post(
+       `${process.env.REACT_APP_BASE_URL}/user/`,
+       userInfo
+       )// dashboard sayfasında logout onClick edildiği zaman buraya y istek gelecek ve başarılıysa işelm
+    //  const { data } = await axiosPublic.post("/user/", userInfo);
       toastSuccessNotify("Kayıt işlemi başarili.");
-
+debugger;
       dispatch(registerSuccess(data));
       console.log(data);
       navigate("/stock");
@@ -58,6 +60,7 @@ const useAuthCalls = () => {
       console.log(error);
       dispatch(fetchFail());
     }
+    debugger;
   };
 
   const logout = async () => {

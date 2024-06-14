@@ -45,7 +45,7 @@ const Products = () => {
         setInfo={setInfo}
       />
 
-      {error && <ErrorMsg />}
+      {error && <ErrorMsg />}f
       {loading && <TableSkeleton />}
 
       {!error && !loading && !products.length && <NoDataMsg />}
