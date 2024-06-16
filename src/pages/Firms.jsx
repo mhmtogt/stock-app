@@ -59,7 +59,6 @@ const Firms = () => {
         </CardSkeleton>
       )}
 
-      {!error && !loading && !firms.length && <NoDataMsg />}
 
       {!loading && !error && firms.length > 0 && (
         <Grid container gap={2} mt={3} justifyContent={"center"}>
