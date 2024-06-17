@@ -72,7 +72,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               onChange={handleChange}
               required
             />
-            <TextField
+          <TextField
               label="Image"
               name="image"
               id="image"
