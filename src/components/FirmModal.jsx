@@ -72,16 +72,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               onChange={handleChange}
               required
             />
-          <TextField
-              label="Image"
-              name="image"
-              id="image"
-              type="url"
-              variant="outlined"
-              value={info.image}
-              onChange={handleChange}
-              required
-            />
+         
             <Button type="submit" variant="contained" size="large">
               {info._id ? "Update Firm" : "Add Firm"}
             </Button>
