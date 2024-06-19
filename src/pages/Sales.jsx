@@ -42,7 +42,6 @@ const Sales = () => {
 
       {error && <ErrorMsg />}
       {loading && <TableSkeleton />}
-      {!loading && !sales?.length && <NoDataMsg />}
       {!loading && sales?.length > 0 && (
         <SaleTable setInfo={setInfo} handleOpen={handleOpen} />
       )}
