@@ -48,7 +48,7 @@ const Login = () => {
           <Typography variant="h3" color="primary" align="center">
             STOCK APP
           </Typography>
-        </Grid>
+        </Grid>{/*Bunları hepsni baştan yapacam son kodları baştan yazacam  */}
 
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
@@ -67,6 +67,7 @@ const Login = () => {
             mb={4}
             color="secondary.light"
           >
+            
             MERHABA
           </Typography>
 
