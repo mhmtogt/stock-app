@@ -10,6 +10,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
   const { postStock, putStock } = useStockCalls()
 
   const handleChange = (e) => {
+     
     // const { name, value } = e.target
     // setInfo({ ...info, [name]: value })
     setInfo({ ...info, [e.target.name]: e.target.value })

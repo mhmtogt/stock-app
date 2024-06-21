@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardMedia from "@mui/material/CardMedia"
@@ -10,6 +11,7 @@ import { btnStyle } from "../styles/globalStyles"
 
 const BrandCard = ({ brand, handleOpen, setInfo }) => {
   const { deleteStock } = useStockCall()
+  const [denem, setDenem] = useState("")
 
   return (
     <Card
