@@ -40,9 +40,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         sx={{ objectFit: "contain" }}
       />
 
-      <Typography variant="body2" color="text.secondary">
-        {firm?.phone}
-      </Typography>
+   
 
       <CardActions>
         <DeleteOutlineIcon
