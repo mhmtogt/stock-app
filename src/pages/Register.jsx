@@ -12,6 +12,7 @@ import useAuthCalls from "../service/useAuthCalls"
 
 const Register = () => {
   const { register } = useAuthCalls()
+  // component jsx içinde js kodu yazmak istersen süslü parantez kullanmalısın
 
   return (
     <Container maxWidth="lg">
